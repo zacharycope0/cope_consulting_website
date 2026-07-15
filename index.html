@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zach Cope — AI Workflow Consultant</title>
+  <meta name="description" content="Zach Cope helps small and mid-sized businesses automate repetitive workflows with AI, built natively inside the tools they already use." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --cream:   #F7F3EE;
+      --navy:    #141C2E;
+      --slate:   #2C3B55;
+      --copper:  #B5622A;
+      --copper-light: #D4844E;
+      --muted:   #6B7A94;
+      --border:  #DDD6CE;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Figtree', sans-serif;
+      background-color: var(--cream);
+      color: var(--navy);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .serif { font-family: 'Cormorant Garamond', serif; }
+
+    /* Noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(247, 243, 238, 0.92);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+    }
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-left: 2.25rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--copper); }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 2.5rem 4rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--copper);
+      margin-right: 0.75rem;
+      vertical-align: middle;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.05;
+      font-size: clamp(2.75rem, 6vw, 5rem);
+      max-width: 16ch;
+      color: var(--navy);
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--copper);
+      font-weight: 600;
+    }
+    .hero-sub {
+      margin-top: 1.75rem;
+      max-width: 46ch;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: var(--slate);
+    }
+    .hero-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--navy);
+      color: var(--cream);
+      padding: 0.9rem 1.9rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.25s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--copper); transform: translateY(-1px); }
+    .btn-secondary {
+      border: 1px solid var(--slate);
+      color: var(--navy);
+      padding: 0.9rem 1.9rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: border-color 0.25s, color 0.25s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { border-color: var(--copper); color: var(--copper); }
+
+    /* Section shared */
+    section { position: relative; z-index: 1; padding: 6rem 2.5rem; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: clamp(2rem, 3.6vw, 2.9rem);
+      color: var(--navy);
+      max-width: 22ch;
+    }
+
+    /* Problem */
+    .problem { background: var(--navy); color: var(--cream); }
+    .problem .eyebrow { color: var(--copper-light); }
+    .problem .section-title { color: var(--cream); }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+    .problem-lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.6rem;
+      line-height: 1.5;
+      color: rgba(247,243,238,0.92);
+    }
+    .problem-list { border-top: 1px solid rgba(247,243,238,0.15); }
+    .problem-item {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(247,243,238,0.15);
+      display: flex;
+      gap: 1.25rem;
+    }
+    .problem-item span.mark { color: var(--copper-light); font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; }
+    .problem-item p { color: rgba(247,243,238,0.75); line-height: 1.55; font-size: 0.98rem; }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 3rem;
+      border: 1px solid var(--border);
+    }
+    .service-card {
+      background: var(--cream);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card.featured { background: var(--navy); color: var(--cream); }
+    .service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      color: var(--copper);
+      letter-spacing: 0.08em;
+      margin-bottom: 1.25rem;
+    }
+    .service-card.featured .service-num { color: var(--copper-light); }
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.55rem;
+      margin-bottom: 0.6rem;
+    }
+    .service-price {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.02em;
+    }
+    .service-card.featured .service-price { color: rgba(247,243,238,0.6); }
+    .service-card p.desc {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--slate);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    .service-card.featured p.desc { color: rgba(247,243,238,0.8); }
+    .service-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--copper);
+    }
+    .service-card.featured .service-tag { color: var(--copper-light); }
+
+    /* Process */
+    .process-list { margin-top: 3rem; }
+    .process-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      align-items: start;
+    }
+    .process-item:last-child { border-bottom: 1px solid var(--border); }
+    .process-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: var(--copper);
+      line-height: 1;
+    }
+    .process-item h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--navy);
+    }
+    .process-item p { color: var(--slate); font-size: 0.95rem; line-height: 1.6; max-width: 52ch; }
+
+    /* About */
+    .about { background: var(--slate); color: var(--cream); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 3.5rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+    .about .eyebrow { color: var(--copper-light); }
+    .about-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .about-role { color: rgba(247,243,238,0.6); font-size: 0.9rem; letter-spacing: 0.04em; }
+    .about-body p {
+      color: rgba(247,243,238,0.85);
+      line-height: 1.75;
+      font-size: 1.02rem;
+      margin-bottom: 1.25rem;
+    }
+    .about-tools {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .about-tools span {
+      border: 1px solid rgba(247,243,238,0.25);
+      padding: 0.4rem 0.9rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+      color: rgba(247,243,238,0.8);
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 3.5rem;
+      margin-top: 3rem;
+    }
+    .contact-info p { color: var(--slate); line-height: 1.7; font-size: 1rem; margin-bottom: 1.5rem; max-width: 40ch; }
+    .contact-detail { margin-bottom: 1rem; }
+    .contact-detail .label { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .contact-detail .value { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--navy); }
+    .contact-detail a { color: var(--navy); text-decoration: none; }
+    .contact-detail a:hover { color: var(--copper); }
+
+    form .field { margin-bottom: 1.4rem; }
+    form label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    form input, form textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      padding: 0.65rem 0.1rem;
+      font-family: 'Figtree', sans-serif;
+      font-size: 1rem;
+      color: var(--navy);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    form input:focus, form textarea:focus { border-color: var(--copper); }
+    form textarea { resize: vertical; min-height: 90px; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .problem-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      section { padding: 4rem 1.5rem; }
+      .hero { padding: 7rem 1.5rem 3rem; }
+    }
+
+    :focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-logo">Zach Cope</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-eyebrow">AI Workflow Consulting</div>
+    <h1>I help small businesses automate the work that <em>shouldn't</em> take a person to do.</h1>
+    <p class="hero-sub">Your team spends less time on repetitive tasks and more time on the work that actually needs a human. Built natively inside the tools you already use, no new platforms to learn.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Start a conversation</a>
+      <a href="#services" class="btn-secondary">See how it works</a>
+    </div>
+  </header>
+
+  <!-- Problem -->
+  <section class="problem">
+    <div class="section-inner">
+      <div class="eyebrow">The Problem</div>
+      <h2 class="section-title">Most automation advice assumes you'll rip out what already works.</h2>
+      <div class="problem-grid">
+        <p class="problem-lead">You don't need a new platform. You need the one you already use to stop making you do things by hand.</p>
+        <div class="problem-list">
+          <div class="problem-item">
+            <span class="mark">01</span>
+            <p>The same spreadsheet gets rebuilt by hand every week because nobody's had time to fix it properly.</p>
+          </div>
+          <div class="problem-item">
+            <span class="mark">02</span>
+            <p>Repetitive CAD or drafting tasks eat hours that should go toward actual design work.</p>
+          </div>
+          <div class="problem-item">
+            <span class="mark">03</span>
+            <p>Every "automation" tool you've looked at wants you to migrate your whole workflow to learn it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="section-inner">
+      <div class="eyebrow">Services</div>
+      <h2 class="section-title">Three ways to start, depending on how much you already know.</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-num">I.</div>
+          <h3>Workflow Audit</h3>
+          <div class="service-price">Starting at $750</div>
+          <p class="desc">A focused review of where your team's time actually goes. You get a clear map of what's worth automating first, and what isn't worth touching yet.</p>
+          <span class="service-tag">Best for getting clarity</span>
+        </div>
+        <div class="service-card featured">
+          <div class="service-num">II.</div>
+          <h3>Custom Automation</h3>
+          <div class="service-price">Starting at $1,500</div>
+          <p class="desc">Built and delivered inside your existing tools: AutoLISP for AutoCAD, VBA for Excel, or Python where it fits. No new software to license or learn.</p>
+          <span class="service-tag">Most common starting point</span>
+        </div>
+        <div class="service-card">
+          <div class="service-num">III.</div>
+          <h3>SOPs &amp; Training</h3>
+          <div class="service-price">Custom scope</div>
+          <p class="desc">Documentation and a short training session so your team can maintain and extend what's built, without depending on me for every change.</p>
+          <span class="service-tag">Best for handing off</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process">
+    <div class="section-inner">
+      <div class="eyebrow">How It Works</div>
+      <h2 class="section-title">A four-step process, start to handoff.</h2>
+      <div class="process-list">
+        <div class="process-item">
+          <div class="process-num">01</div>
+          <div>
+            <h4>Conversation</h4>
+            <p>A short call about how your team actually works day to day, no proposal until I understand the real bottleneck.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">02</div>
+          <div>
+            <h4>Scope</h4>
+            <p>A clear, fixed-scope plan for what gets built, what tool it lives in, and what it will save your team.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">03</div>
+          <div>
+            <h4>Build</h4>
+            <p>Development happens inside your existing software. You see working versions along the way, not just a final reveal.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">04</div>
+          <div>
+            <h4>Handoff</h4>
+            <p>Documentation and a walkthrough so your team owns it. I stick around for questions, not as a dependency.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="section-inner">
+      <div class="eyebrow">About</div>
+      <div class="about-grid">
+        <div>
+          <div class="about-name">Zach Cope</div>
+          <div class="about-role">Founder, Cope Consulting</div>
+        </div>
+        <div class="about-body">
+          <p>I work with small and mid-sized businesses to automate the repetitive parts of their workflow, without asking them to change the tools they already rely on. Most of my work lives inside AutoCAD, Excel, and the day-to-day software teams already know.</p>
+          <p>Based in Chicago. I take on a small number of projects at a time so each one gets real attention from scope to handoff.</p>
+          <div class="about-tools">
+            <span>AutoLISP</span>
+            <span>VBA / Excel</span>
+            <span>Python (COM)</span>
+            <span>Workflow Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="eyebrow">Get In Touch</div>
+      <h2 class="section-title">Tell me what's eating your team's time.</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>No pitch on the first call. Just a conversation about what's slow, repetitive, or breaking, and whether automating it makes sense.</p>
+          <div class="contact-detail">
+            <div class="label">Email</div>
+            <div class="value"><a href="mailto:zach@copeconsulting.com">zach@copeconsulting.com</a></div>
+          </div>
+          <div class="contact-detail">
+            <div class="label">Based In</div>
+            <div class="value">Chicago, IL</div>
+          </div>
+        </div>
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="field">
+            <label for="message">What's the bottleneck?</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="border:none; cursor:pointer;">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 Cope Consulting, LLC</span>
+    <span>zachcope.com</span>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+  </script>
+
+</body>
+</html>
