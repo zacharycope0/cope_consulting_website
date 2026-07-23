@@ -44,51 +44,79 @@
       opacity: 0.4;
     }
 
-    /* Nav */
-    nav {
+    /* Nav — fixed top-right, stays put while scrolling */
+    .nav-links-fixed {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0; right: 0;
       z-index: 100;
-      padding: 1.25rem 2.5rem;
+      padding: 1.5rem 2.5rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
       transition: background 0.3s, box-shadow 0.3s;
     }
-    nav.scrolled {
+    .nav-links-fixed.scrolled {
       background: rgba(247, 243, 238, 0.92);
       backdrop-filter: blur(12px);
       box-shadow: 0 1px 0 var(--border);
+      border-radius: 0 0 0 4px;
     }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      font-size: 1.4rem;
-      color: var(--navy);
-      letter-spacing: 0.02em;
-    }
-    .nav-links a {
+    .nav-links-fixed a {
       font-size: 0.85rem;
       font-weight: 500;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: var(--slate);
+      color: var(--cream);
       margin-left: 2.25rem;
       text-decoration: none;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--copper); }
+    .nav-links-fixed a:hover { color: var(--copper-light); }
+    .nav-links-fixed.scrolled a { color: var(--slate); }
+    .nav-links-fixed.scrolled a:hover { color: var(--copper); }
 
     /* Hero */
     .hero {
-      min-height: 100vh;
+      min-height: 55vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 8rem 2.5rem 4rem;
+      padding: 2.5rem 2.5rem 4rem;
       position: relative;
       z-index: 1;
+      overflow: hidden;
+      background: var(--navy);
     }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.45;
+      z-index: 0;
+    }
+    .hero-intro {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-intro h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.1;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      color: var(--cream);
+    }
+    .hero-intro p {
+      margin-top: 0.9rem;
+      max-width: 36ch;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: rgba(247,243,238,0.85);
+    }
+
+    /* Intro (below photo) */
+    .intro { padding-top: 5rem; }
+
     .hero-eyebrow {
       font-size: 0.8rem;
       font-weight: 600;
@@ -105,26 +133,6 @@
       background: var(--copper);
       margin-right: 0.75rem;
       vertical-align: middle;
-    }
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      line-height: 1.05;
-      font-size: clamp(2.75rem, 6vw, 5rem);
-      max-width: 16ch;
-      color: var(--navy);
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--copper);
-      font-weight: 600;
-    }
-    .hero-sub {
-      margin-top: 1.75rem;
-      max-width: 46ch;
-      font-size: 1.15rem;
-      line-height: 1.6;
-      color: var(--slate);
     }
     .hero-cta {
       margin-top: 2.5rem;
@@ -421,7 +429,7 @@
     }
 
     @media (max-width: 860px) {
-      .nav-links { display: none; }
+      .nav-links-fixed { display: none; }
       .problem-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       section { padding: 4rem 1.5rem; }
@@ -437,31 +445,39 @@
 </head>
 <body>
 
-  <nav id="nav">
-    <div class="nav-logo">Zach Cope</div>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
+  <nav id="nav" class="nav-links-fixed">
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-eyebrow">AI Workflow Consulting</div>
-    <h1 class="hero-a-title">From repetitive task to safe automation.</h1>
-    <div class="hero-a-ledger">
-      <div class="hero-a-label">I help you:</div>
-      <div class="hero-c-proof">
-        <div class="hero-c-item"><strong>Identify</strong>automatable tasks</div>
-        <div class="hero-c-item"><strong>Build</strong>with AI, tested before it ships</div>
-        <div class="hero-c-item"><strong>Deploy</strong>safely, in your own tools</div>
-      </div>
+    <img class="hero-bg" src="https://lh3.googleusercontent.com/pw/AP1GczNbwVfvPJgTLJI8fFBb_rOA5jzUXNGXIZS-wBojWou-UyTmo1h39GHU3gH_de92Ex9agiLt8trA9kwh1lqR0hQtK5-iGFguuvuPZEmx3GWD_hnYQ6Ij=w1920" alt="" />
+    <div class="hero-intro">
+      <h1>Hi I&rsquo;m Zach Cope</h1>
+      <p>I build data automation tools and give you time focus on the big picture</p>
     </div>
-    <div class="hero-cta">
-      <a href="#contact" class="btn-primary">Start a conversation</a>
-      <a href="#services" class="btn-secondary">See how it works</a>
+  </section>
+
+  <!-- Intro -->
+  <section class="intro">
+    <div class="section-inner">
+      <div class="hero-eyebrow">AI Workflow Consulting</div>
+      <h2 class="hero-a-title">From repetitive task to safe automation.</h2>
+      <div class="hero-a-ledger">
+        <div class="hero-a-label">I help you:</div>
+        <div class="hero-c-proof">
+          <div class="hero-c-item"><strong>Identify</strong>automatable tasks</div>
+          <div class="hero-c-item"><strong>Build</strong>with AI, tested before it ships</div>
+          <div class="hero-c-item"><strong>Deploy</strong>safely, in your own tools</div>
+        </div>
+      </div>
+      <div class="hero-cta">
+        <a href="#contact" class="btn-primary">Start a conversation</a>
+        <a href="#services" class="btn-secondary">See how it works</a>
+      </div>
     </div>
   </section>
 
