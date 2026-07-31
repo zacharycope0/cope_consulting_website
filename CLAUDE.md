@@ -31,6 +31,8 @@ New direction, inspired by glorialo.design:
 - Big, confident typography carries the page instead of boxes/cards
 - Sparse nav — a few words, no clutter
 
+Color scheme: "Plum" — deep wine accent (`#7A3159`) on a white/off-white background, chosen from five candidate schemes on 2026-07-31. Every interactive color (nav hover, tap-reveal underlines, buttons, form focus, tooltip background) reads from five CSS variables (`--bg`, `--fg`, `--muted`, `--border`, `--accent`) in the single `:root` block at the top of `styles.css` — change those five values there to re-theme the whole site.
+
 ## Site Structure
 
 - **Homepage** (`index.html`) — single page, minimal text, most detail lives on subpages
