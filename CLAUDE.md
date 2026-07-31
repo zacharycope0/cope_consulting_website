@@ -85,9 +85,9 @@ Considered and decided against: a markdown-content + Python build-script pipelin
 - Exact copy for each subpage (currently placeholders only)
 - Whether the headline stays as final copy or gets refined further
 - Real Formspree form ID (current file has `YOUR_FORM_ID` as a placeholder)
-- Photo for the About summary block (source/file TBD) — homepage currently shows a text placeholder ("Photo coming soon") in `.about-photo-placeholder`
 - Legacy About-page text from the old site (e.g. "fire modelor") had a likely typo — don't carry old About copy forward verbatim when writing the new About page
 
 ## Resolved Decisions
 
 - File/URL structure for subpages: flat `.html` files in the repo root (not a `/services/` folder), linked with the `.html` extension rather than clean URLs — keeps local file:// testing and Cloudflare Pages behavior identical. Decided 2026-07-31.
+- About-summary photo: hosted in-repo as `zach-photo.jpg` (640x640, cropped/compressed from the original phone photo) rather than linking the Google Photos share URL — a share link isn't a stable hotlinkable image source and depends on an external service staying up. Used by the `.about-photo` circle in `index.html`. Decided 2026-07-31.
