@@ -13,9 +13,11 @@ This file is the source of truth for the site's business context, design directi
 
 **Flagship: Skillification** (`skillification.html`)
 - Process: Audit, Build, Share, Maintain (mirrors the claude_skillification repo: /workflow-audit, personal skills, consolidated team set, /sync-from-main)
-- **Skillification Sprint**: one-time flat fee. Workflow audit for up to 5 people, 1 to 3 skills per person, shared team skill library, onboarding session + plain-English guide, 30 days of fixes
-- **Skill Upkeep**: quarterly retainer. Quarterly merge of new skills, fixes when Claude updates break things, new skills, feedback review, email support
-- Prices shown as "Starting at" with placeholders ($X,XXX and $XXX / quarter) marked with TODO comments. Must be filled in before launch.
+- **Starter**: $1,000 flat. One well-defined workflow, 1 to 2 people, 2 weeks of fixes
+- **Team Sprint**: starting at $2,500. Audit for up to 5 people, 1 to 3 skills each, shared team library, onboarding + guide, 30 days of fixes
+- **Skill Check-up**: $250 / quarter. Automated-leaning health check + short report; fixes and new skills quoted separately (keeps the cheap tier from becoming uncapped support)
+- Add-ons: $500 to $800 per extra workflow or person. Company-wide rollouts scoped as one project (ceiling roughly $30k to $50k, not shown on site)
+- Pricing set 2026-11-12
 - The repo itself is not sold; the service of running it is.
 
 **Secondary services**
@@ -64,7 +66,6 @@ A markdown-content + Python build-script pipeline. The site is 6 pages; a build 
 
 ## Open Questions / Before Launch
 
-- Real starting prices for Sprint and Upkeep (search for `TODO: set real starting price`)
 - Real Formspree form ID (`YOUR_FORM_ID`)
 - Confirm with Firescape that referencing "a wildfire-risk tech company" as Skillification's origin is OK (TODO comment in `skillification.html`)
 - Example skills on the Skillification page are generic illustrations; swap for real client examples once available
