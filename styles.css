@@ -504,3 +504,10 @@ footer a:hover { color: var(--on-dark); }
 .placeholder { background: #FFE8A3; padding: 0 0.2em; }
 .btn-light { background: var(--on-dark); color: var(--fg); border-color: var(--on-dark); }
 .btn-light:hover { background: #E6875F; border-color: #E6875F; color: var(--fg); }
+
+/* Contact form status + spam honeypot */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form-status { margin-top: 1rem; font-size: 0.95rem; min-height: 1.5em; }
+.form-status.is-ok { color: #9FD3A8; }
+.form-status.is-error { color: #F0A58A; }
+form .btn:disabled { opacity: 0.6; cursor: wait; }

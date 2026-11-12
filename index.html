@@ -198,8 +198,10 @@
             Chicago, IL. Working with teams anywhere.
           </div>
         </div>
-        <!-- TODO: replace YOUR_FORM_ID with the real Formspree form ID before launch -->
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <!-- Formspree form. Works as a plain POST without JS; script.js upgrades it to submit in place. -->
+        <form id="contact-form" action="https://formspree.io/f/maeonjvl" method="POST">
+          <input type="hidden" name="_subject" value="New inquiry from zachcope.com" />
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="field">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" autocomplete="name" required />
@@ -224,6 +226,7 @@
             <textarea id="message" name="message" required></textarea>
           </div>
           <button type="submit" class="btn">Send message →</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>

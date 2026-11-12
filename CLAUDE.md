@@ -58,7 +58,7 @@ Replaced the Plum minimal design entirely.
 - Static HTML, no build step, no framework
 - Hosted on Cloudflare Pages, connected to GitHub, auto-deploys on push to main
 - Redesign lives on branch `redesign-skillification` until approved; merge to main to go live
-- Formspree handles the contact form (form now also has an "Interested in" select)
+- Formspree handles the contact form: endpoint `https://formspree.io/f/maeonjvl`. Plain HTML POST as the fallback, upgraded in `script.js` to a fetch submit with an inline status message. Hidden `_subject` and `_gotcha` honeypot fields. No Formspree JS library (keeps zero external scripts)
 
 ## Explicitly Rejected Approach
 
@@ -66,7 +66,6 @@ A markdown-content + Python build-script pipeline. The site is 6 pages; a build 
 
 ## Open Questions / Before Launch
 
-- Real Formspree form ID (`YOUR_FORM_ID`)
 - Confirm with Firescape that referencing "a wildfire-risk tech company" as Skillification's origin is OK (TODO comment in `skillification.html`)
 - Example skills on the Skillification page are generic illustrations; swap for real client examples once available
 
