@@ -3,45 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Management and Analysis — Zach Cope</title>
-  <meta name="description" content="Data management and analysis consulting from Zach Cope for small businesses." />
+  <title>Data Management and Analysis | Zach Cope</title>
+  <meta name="description" content="Clean up messy spreadsheets, connect scattered data, and get reports that build themselves. Flat fee, paid on delivery." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <nav class="site-nav">
-    <a href="index.html" class="logo">Cope Consulting</a>
-    <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
-      <li>
-        <button class="nav-link" data-dropdown-toggle aria-expanded="false" aria-controls="services-dropdown">
-          Services <span class="nav-caret">▾</span>
-        </button>
-        <div class="nav-dropdown" id="services-dropdown">
-          <a href="software-automations.html">Software Automations</a>
-          <a href="ai-implementation.html">AI Implementation and Training</a>
-          <a href="data-management.html">Data Management and Analysis</a>
-        </div>
-      </li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
+  <nav class="site-nav" aria-label="Main">
+    <div class="wrap">
+      <a href="index.html" class="logo">Zach Cope<span>.</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="skillification.html">Skillification</a></li>
+        <li><a href="software-automations.html">Automations</a></li>
+        <li><a href="data-management.html">Data</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get in touch</a></li>
+      </ul>
+    </div>
   </nav>
 
   <main>
-    <header class="page-header">
-      <h1>Data Management and Analysis</h1>
-    </header>
-    <section class="page-placeholder">
-      <p>Content coming soon.</p>
+
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="label"><span class="num">B</span> / Data Management and Analysis</span>
+        <h1>Get your numbers out of <em>twelve different spreadsheets.</em></h1>
+        <p class="lede">Most small businesses have the data to answer their own questions. It's just scattered, inconsistent and stuck in exports nobody trusts. I clean it up, connect it, and set up reports that keep running after I leave.</p>
+        <div class="btn-row">
+          <a class="btn" href="index.html#contact">Tell me about your data →</a>
+        </div>
+      </div>
     </section>
+
+    <section class="band">
+      <div class="wrap split">
+        <div>
+          <span class="label"><span class="num">01</span> / Typical projects</span>
+          <h2 class="mt-1">From messy to useful.</h2>
+        </div>
+        <ul class="ticks">
+          <li><strong>Cleanup.</strong> Duplicates, typos, mismatched formats and broken records, fixed and kept fixed.</li>
+          <li><strong>Consolidation.</strong> Monthly exports and team spreadsheets merged into one source of truth.</li>
+          <li><strong>Automated reports.</strong> Charts, tables and PDFs that build themselves on a schedule.</li>
+          <li><strong>Maps.</strong> Customers, jobs or sales plotted by location, so patterns jump out.</li>
+          <li><strong>Analysis.</strong> Straight answers to questions like "which clients are actually profitable?"</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap"><div class="facts">
+        <div class="fact"><div class="big">6 years</div><p>Building data pipelines and models for wildfire science, where messy data was the norm.</p></div>
+        <div class="fact"><div class="big">Your format</div><p>Results land in Excel, Google Sheets or PDF, whatever your team already opens.</p></div>
+        <div class="fact"><div class="big">Flat fee</div><p>A fixed quote up front, paid when the work is delivered.</p></div>
+      </div>
+      </div>
+    </section>
+
+    <section class="dark">
+      <div class="wrap">
+        <h2>Have a question your data <em>should be able to answer?</em></h2>
+        <div class="btn-row mt-2">
+          <a class="btn btn-light" href="index.html#contact">Get in touch →</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <span>&copy; 2026 Cope Consulting, LLC</span>
-    <span>zachcope.com</span>
+    <div class="wrap">
+      <span>&copy; <span data-year>2026</span> Cope Consulting, LLC</span>
+      <a href="mailto:zach@zachcope.com">zach@zachcope.com</a>
+    </div>
   </footer>
 
   <script src="script.js"></script>

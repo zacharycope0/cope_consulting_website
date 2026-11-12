@@ -1,57 +1,33 @@
-// Shared nav dropdown + tap-to-reveal behavior. Click-based so it works on tap, not just hover.
+// Shared site behavior: mobile nav toggle + current-page highlight.
 document.addEventListener('DOMContentLoaded', () => {
-  const openReveals = new Set();
-  const openDropdowns = new Set();
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
 
-  function closeReveal(trigger) {
-    trigger.closest('.reveal').classList.remove('is-open');
-    trigger.setAttribute('aria-expanded', 'false');
-    openReveals.delete(trigger);
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.textContent = open ? 'Close' : 'Menu';
+    });
+    links.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => {
+        links.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = 'Menu';
+      });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && links.classList.contains('is-open')) toggle.click();
+    });
   }
 
-  function closeDropdown(toggle) {
-    const dropdown = document.getElementById(toggle.getAttribute('aria-controls'));
-    if (dropdown) dropdown.classList.remove('is-open');
-    toggle.setAttribute('aria-expanded', 'false');
-    openDropdowns.delete(toggle);
-  }
-
-  document.querySelectorAll('.reveal-trigger').forEach((trigger) => {
-    trigger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = trigger.closest('.reveal').classList.contains('is-open');
-      openReveals.forEach(closeReveal);
-      if (!isOpen) {
-        trigger.closest('.reveal').classList.add('is-open');
-        trigger.setAttribute('aria-expanded', 'true');
-        openReveals.add(trigger);
-      }
-    });
+  // Mark the nav link for the current page.
+  const here = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach((a) => {
+    if (a.getAttribute('href') === here) a.setAttribute('aria-current', 'page');
   });
 
-  document.querySelectorAll('[data-dropdown-toggle]').forEach((toggle) => {
-    toggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const dropdown = document.getElementById(toggle.getAttribute('aria-controls'));
-      const isOpen = dropdown.classList.contains('is-open');
-      openDropdowns.forEach(closeDropdown);
-      if (!isOpen) {
-        dropdown.classList.add('is-open');
-        toggle.setAttribute('aria-expanded', 'true');
-        openDropdowns.add(toggle);
-      }
-    });
-  });
-
-  document.addEventListener('click', () => {
-    openReveals.forEach(closeReveal);
-    openDropdowns.forEach(closeDropdown);
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      openReveals.forEach(closeReveal);
-      openDropdowns.forEach(closeDropdown);
-    }
-  });
+  // Year in footer.
+  const y = document.querySelector('[data-year]');
+  if (y) y.textContent = new Date().getFullYear();
 });

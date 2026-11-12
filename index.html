@@ -3,104 +3,213 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zach Cope — Technology Consulting for Small Business</title>
-  <meta name="description" content="Affordable, flexible technology consulting for small businesses, built inside the tools you already use." />
+  <title>Zach Cope | Claude skills and automation for small teams</title>
+  <meta name="description" content="I help small teams turn the work they already do into reusable Claude skills. Flat fee, built around the tools you already use." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <nav class="site-nav">
-    <a href="index.html" class="logo">Cope Consulting</a>
-    <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
-      <li>
-        <button class="nav-link" data-dropdown-toggle aria-expanded="false" aria-controls="services-dropdown">
-          Services <span class="nav-caret">▾</span>
-        </button>
-        <div class="nav-dropdown" id="services-dropdown">
-          <a href="software-automations.html">Software Automations</a>
-          <a href="ai-implementation.html">AI Implementation and Training</a>
-          <a href="data-management.html">Data Management and Analysis</a>
-        </div>
-      </li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <nav class="site-nav" aria-label="Main">
+    <div class="wrap">
+      <a href="index.html" class="logo">Zach Cope<span>.</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="skillification.html">Skillification</a></li>
+        <li><a href="software-automations.html">Automations</a></li>
+        <li><a href="data-management.html">Data</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+      </ul>
+    </div>
   </nav>
 
   <main>
 
     <!-- Hero -->
     <section class="hero">
-      <div class="hero-inner">
-        <h1><span class="reveal"><button class="reveal-trigger" aria-expanded="false">Affordable</button><span class="reveal-tooltip">I work off a flat fee and get paid when I deliver.</span></span>, <span class="reveal"><button class="reveal-trigger" aria-expanded="false">flexible</button><span class="reveal-tooltip">I design solutions within your existing tools.</span></span> technology consulting for your small business</h1>
-        <p class="hero-sub">
-          Hi, I'm <a href="about.html">Zach Cope</a>. I help small businesses put technology to work, using the tools you already have.
-        </p>
-      </div>
-    </section>
-
-    <!-- About summary -->
-    <section class="section about-summary">
-      <div class="section-inner about-summary-inner">
-        <img class="about-photo" src="zach-photo.jpg" alt="Zach Cope" width="640" height="640" />
-        <div>
-          <p>I'm an independent consultant based in Chicago, working directly with small business owners on the technology behind their day to day operations.</p>
-          <a class="link-more" href="about.html">More about me →</a>
+      <div class="wrap">
+        <span class="label"><span class="num">●</span> Cope Consulting, Chicago</span>
+        <h1>Teach Claude how <em>your business</em> actually works.</h1>
+        <p class="lede">I'm Zach. I help small teams turn the work they already do into reusable Claude skills, so the AI follows your process instead of guessing at it. <strong>Flat fee, paid when I deliver.</strong></p>
+        <div class="btn-row">
+          <a class="btn" href="skillification.html">How Skillification works →</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
         </div>
       </div>
     </section>
 
-    <!-- Services -->
-    <section class="section" id="services">
-      <div class="section-inner services-intro">
-        <h2>Services</h2>
-        <p class="services-sub">All services are <span class="reveal"><button class="reveal-trigger" aria-expanded="false">flat fee</button><span class="reveal-tooltip">I work off a flat fee and get paid when I deliver.</span></span> and designed for your <span class="reveal"><button class="reveal-trigger" aria-expanded="false">existing tools</button><span class="reveal-tooltip">I design solutions within your existing tools.</span></span>.</p>
+    <!-- Problem -->
+    <section class="band">
+      <div class="wrap section-head">
+        <span class="label"><span class="num">01</span> / The problem</span>
+        <div>
+          <h2>Most teams try AI once, get a generic answer, and go back to doing it by hand.</h2>
+          <p class="lede">The fix isn't a cleverer prompt. It's writing down how your team does the work, once, in a form Claude can follow every time. That's a <strong>skill</strong>. Your weekly report, your quote builder, your client intake. Same steps, same format, every run.</p>
+        </div>
       </div>
-      <div class="section-inner services-buttons">
-        <a class="service-btn" href="software-automations.html">
-          <span class="service-btn-title">Software Automations</span>
-          <span class="service-btn-arrow">Learn more →</span>
-        </a>
-        <a class="service-btn" href="ai-implementation.html">
-          <span class="service-btn-title">AI Implementation and Training</span>
-          <span class="service-btn-arrow">Learn more →</span>
-        </a>
-        <a class="service-btn" href="data-management.html">
-          <span class="service-btn-title">Data Management and Analysis</span>
-          <span class="service-btn-arrow">Learn more →</span>
-        </a>
+    </section>
+
+    <!-- Process -->
+    <section class="dark">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label"><span class="num">02</span> / Skillification</span>
+          <div>
+            <h2>Four steps from <em>"we should use AI"</em> to a team that does.</h2>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <span class="label"><span class="num">01</span> Audit</span>
+            <h3>Map the work</h3>
+            <p>I sit down with each person and write up what they actually do all week, and what Claude could take off their plate.</p>
+          </div>
+          <div class="step">
+            <span class="label"><span class="num">02</span> Build</span>
+            <h3>Do one real task</h3>
+            <p>We do a real piece of their work together with Claude. If they like the result, we save it as a skill they can rerun.</p>
+          </div>
+          <div class="step">
+            <span class="label"><span class="num">03</span> Share</span>
+            <h3>One team set</h3>
+            <p>The best skills become one standard set the whole team shares, while each person keeps their own tweaks.</p>
+          </div>
+          <div class="step">
+            <span class="label"><span class="num">04</span> Maintain</span>
+            <h3>Keep it working</h3>
+            <p>Claude changes every few months. I keep your skills running, fold in feedback, and add new ones as your work changes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label"><span class="num">03</span> / Pricing</span>
+          <div>
+            <h2>One sprint to set it up. A light retainer to keep it sharp.</h2>
+          </div>
+        </div>
+        <div class="plans">
+          <div class="plan featured">
+            <span class="label">One time</span>
+            <h3>Skillification Sprint</h3>
+            <p>Your team goes from zero to using its own Claude skills every week.</p>
+            <!-- TODO: set real starting price -->
+            <div class="price"><small>Starting at</small>$X,XXX</div>
+            <div class="price-note">Flat fee, paid on delivery</div>
+            <ul>
+              <li>Workflow audit for up to 5 people</li>
+              <li>1 to 3 working skills per person, built on real tasks</li>
+              <li>Shared team skill library, set up and organized</li>
+              <li>Hands-on onboarding session and a plain-English guide</li>
+              <li>30 days of fixes after delivery</li>
+            </ul>
+            <a class="btn" href="#contact">Start with a free call →</a>
+          </div>
+          <div class="plan">
+            <span class="label">Ongoing</span>
+            <h3>Skill Upkeep</h3>
+            <p>For teams that want their skills to keep up with their work and with Claude.</p>
+            <!-- TODO: set real starting price -->
+            <div class="price"><small>Starting at</small>$XXX<span class="label"> / quarter</span></div>
+            <div class="price-note">Cancel anytime</div>
+            <ul>
+              <li>Quarterly review and merge of everyone's new skills</li>
+              <li>Fixes when Claude updates break something</li>
+              <li>New skills as your processes change</li>
+              <li>Feedback from your team, reviewed and acted on</li>
+              <li>Email support with a quick turnaround</li>
+            </ul>
+            <a class="btn btn-ghost" href="#contact">Ask about upkeep →</a>
+          </div>
+        </div>
+        <p class="pricing-foot">Final price depends on team size and how many workflows we cover. We'll scope it together on a free 30 minute call. No platform to license, no long contract.</p>
+      </div>
+    </section>
+
+    <!-- Other services -->
+    <section class="band" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label"><span class="num">04</span> / Also</span>
+          <div>
+            <h2>Not ready for AI? I still fix the tedious stuff.</h2>
+            <p class="lede">Same deal: flat fee, built inside the tools you already use.</p>
+          </div>
+        </div>
+        <div class="service-list">
+          <a class="service-row" href="software-automations.html">
+            <span class="label"><span class="num">A</span></span>
+            <h3>Software Automations</h3>
+            <p>Macros, scripts and plugins for Excel, Google Sheets, AutoCAD and QGIS. The repetitive clicking, done for you.</p>
+            <span class="arrow">→</span>
+          </a>
+          <a class="service-row" href="data-management.html">
+            <span class="label"><span class="num">B</span></span>
+            <h3>Data Management and Analysis</h3>
+            <p>Clean up messy spreadsheets, connect scattered data, and get reports that build themselves.</p>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section>
+      <div class="wrap about-strip">
+        <img src="zach-photo.jpg" alt="Zach Cope" width="640" height="640" loading="lazy" />
+        <div>
+          <span class="label"><span class="num">05</span> / Who you'd work with</span>
+          <h2>A data scientist who has also worked on a burn crew.</h2>
+          <p class="lede">I spent six years in fire science with the US Forest Service and a wildfire-risk startup, building the data pipelines and models behind the work. Before that I worked construction and landscaping. I like tools that people actually end up using.</p>
+          <a class="text-link" href="about.html">More about me →</a>
+        </div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section class="section" id="contact">
-      <div class="section-inner contact-grid">
+    <section class="dark" id="contact">
+      <div class="wrap contact-grid">
         <div>
-          <h2>Get in touch</h2>
-          <p class="hero-sub" style="margin-top: 1rem;">Tell me a bit about what you're working on. No pitch on the first message.</p>
+          <span class="label"><span class="num">06</span> / Contact</span>
+          <h2>Tell me what's eating <em>your week.</em></h2>
+          <p class="lede">A few sentences is plenty. I'll reply within two business days, and the first call is free.</p>
           <div class="contact-detail">
             <a href="mailto:zach@zachcope.com">zach@zachcope.com</a><br />
-            Chicago, IL
+            Chicago, IL. Working with teams anywhere.
           </div>
         </div>
         <!-- TODO: replace YOUR_FORM_ID with the real Formspree form ID before launch -->
         <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="field">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" required />
+            <input type="text" id="name" name="name" autocomplete="name" required />
           </div>
           <div class="field">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
+            <input type="email" id="email" name="email" autocomplete="email" required />
           </div>
           <div class="field">
-            <label for="message">Message</label>
+            <label for="interest">Interested in</label>
+            <select id="interest" name="interest">
+              <option>Skillification Sprint</option>
+              <option>Skill Upkeep</option>
+              <option>Software Automations</option>
+              <option>Data Management and Analysis</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">What would you hand off if you could?</label>
             <textarea id="message" name="message" required></textarea>
           </div>
-          <button type="submit" class="btn-submit">Send message</button>
+          <button type="submit" class="btn">Send message →</button>
         </form>
       </div>
     </section>
@@ -108,8 +217,10 @@
   </main>
 
   <footer>
-    <span>&copy; 2026 Cope Consulting, LLC</span>
-    <span>zachcope.com</span>
+    <div class="wrap">
+      <span>&copy; <span data-year>2026</span> Cope Consulting, LLC</span>
+      <a href="mailto:zach@zachcope.com">zach@zachcope.com</a>
+    </div>
   </footer>
 
   <script src="script.js"></script>

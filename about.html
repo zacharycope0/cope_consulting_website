@@ -3,45 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — Zach Cope</title>
-  <meta name="description" content="About Zach Cope, independent technology consultant based in Chicago, IL." />
+  <title>About | Zach Cope</title>
+  <meta name="description" content="Zach Cope is a Chicago data scientist who helps small teams set up Claude skills and automate their busywork." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <nav class="site-nav">
-    <a href="index.html" class="logo">Cope Consulting</a>
-    <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
-      <li>
-        <button class="nav-link" data-dropdown-toggle aria-expanded="false" aria-controls="services-dropdown">
-          Services <span class="nav-caret">▾</span>
-        </button>
-        <div class="nav-dropdown" id="services-dropdown">
-          <a href="software-automations.html">Software Automations</a>
-          <a href="ai-implementation.html">AI Implementation and Training</a>
-          <a href="data-management.html">Data Management and Analysis</a>
-        </div>
-      </li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
+  <nav class="site-nav" aria-label="Main">
+    <div class="wrap">
+      <a href="index.html" class="logo">Zach Cope<span>.</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="skillification.html">Skillification</a></li>
+        <li><a href="software-automations.html">Automations</a></li>
+        <li><a href="data-management.html">Data</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get in touch</a></li>
+      </ul>
+    </div>
   </nav>
 
   <main>
-    <header class="page-header">
-      <h1>About</h1>
-    </header>
-    <section class="page-placeholder">
-      <p>Content coming soon.</p>
+
+    <section class="page-hero">
+      <div class="wrap about-strip">
+        <img src="zach-photo.jpg" alt="Zach Cope" width="640" height="640" />
+        <div>
+          <span class="label"><span class="num">●</span> About</span>
+          <h1 class="mt-1" style="font-size:clamp(2.5rem,6vw,4.5rem)">Hi, I'm <em>Zach.</em></h1>
+          <p class="lede mt-1">I'm a data scientist in Chicago. I help small teams spend less time on busywork, mostly by teaching Claude how they do things.</p>
+        </div>
+      </div>
     </section>
+
+    <section class="band">
+      <div class="wrap split">
+        <div>
+          <span class="label"><span class="num">01</span> / Background</span>
+          <h2 class="mt-1">From burn crews to data pipelines.</h2>
+        </div>
+        <div class="prose">
+          <p class="lede">I started out doing physical work: construction, landscaping, and prescribed burn operations with the US Forest Service. That's where I learned that a plan only matters if the crew on the ground can actually follow it.</p>
+          <p class="lede">Over the next six years I moved into fire science, working with the Forest Service and a wildfire-risk startup. I built data pipelines, fire spread models and the tooling around them, usually for people who were experts in fire, not in code.</p>
+          <p class="lede">Along the way I started building Claude skills so my team could rerun our own workflows without me in the loop. That system became Skillification, and it's the core of what I offer now.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label"><span class="num">02</span> / How I work</span>
+          <div><h2>Three rules I don't bend.</h2></div>
+        </div>
+        <div class="facts">
+          <div class="fact"><div class="big">Flat fee</div><p>You know the price before I start, and you pay when I deliver.</p></div>
+          <div class="fact"><div class="big">Your tools</div><p>I build inside what you already use. No new platform to license or learn.</p></div>
+          <div class="fact"><div class="big">Plain English</div><p>If your team can't use it without me, I haven't finished the job.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark">
+      <div class="wrap">
+        <h2>Want to see if we're <em>a good fit?</em></h2>
+        <div class="btn-row mt-2">
+          <a class="btn btn-light" href="index.html#contact">Get in touch →</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <span>&copy; 2026 Cope Consulting, LLC</span>
-    <span>zachcope.com</span>
+    <div class="wrap">
+      <span>&copy; <span data-year>2026</span> Cope Consulting, LLC</span>
+      <a href="mailto:zach@zachcope.com">zach@zachcope.com</a>
+    </div>
   </footer>
 
   <script src="script.js"></script>

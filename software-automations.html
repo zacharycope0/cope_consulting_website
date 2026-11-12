@@ -3,45 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Software Automations — Zach Cope</title>
-  <meta name="description" content="Software automation consulting from Zach Cope, built inside the tools your business already uses." />
+  <title>Software Automations | Zach Cope</title>
+  <meta name="description" content="Macros, scripts and plugins built inside Excel, Google Sheets, AutoCAD and QGIS. Flat fee, paid on delivery." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <nav class="site-nav">
-    <a href="index.html" class="logo">Cope Consulting</a>
-    <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
-      <li>
-        <button class="nav-link" data-dropdown-toggle aria-expanded="false" aria-controls="services-dropdown">
-          Services <span class="nav-caret">▾</span>
-        </button>
-        <div class="nav-dropdown" id="services-dropdown">
-          <a href="software-automations.html">Software Automations</a>
-          <a href="ai-implementation.html">AI Implementation and Training</a>
-          <a href="data-management.html">Data Management and Analysis</a>
-        </div>
-      </li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
+  <nav class="site-nav" aria-label="Main">
+    <div class="wrap">
+      <a href="index.html" class="logo">Zach Cope<span>.</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="skillification.html">Skillification</a></li>
+        <li><a href="software-automations.html">Automations</a></li>
+        <li><a href="data-management.html">Data</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get in touch</a></li>
+      </ul>
+    </div>
   </nav>
 
   <main>
-    <header class="page-header">
-      <h1>Software Automations</h1>
-    </header>
-    <section class="page-placeholder">
-      <p>Content coming soon.</p>
+
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="label"><span class="num">A</span> / Software Automations</span>
+        <h1>The repetitive clicking, <em>done for you.</em></h1>
+        <p class="lede">If someone on your team does the same steps in the same program every week, that's usually a macro, a script or a plugin waiting to happen. I build it inside the software you already pay for, so there's nothing new to learn.</p>
+        <div class="btn-row">
+          <a class="btn" href="index.html#contact">Describe the task →</a>
+        </div>
+      </div>
     </section>
+
+    <section class="band">
+      <div class="wrap split">
+        <div>
+          <span class="label"><span class="num">01</span> / Where I work</span>
+          <h2 class="mt-1">Built into your tools, not bolted on.</h2>
+        </div>
+        <ul class="ticks">
+          <li><strong>Excel and VBA.</strong> Buttons that clean, reformat and summarize a file in one click.</li>
+          <li><strong>Google Sheets and Apps Script.</strong> Sheets that pull data in, send reminders and update themselves.</li>
+          <li><strong>AutoCAD and AutoLISP.</strong> Commands that handle the drafting chores you repeat on every drawing.</li>
+          <li><strong>QGIS and Python.</strong> Map plugins and processing tools for spatial data.</li>
+          <li><strong>Python scripts.</strong> For the jobs that span several programs or run unattended.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label"><span class="num">02</span> / How it goes</span>
+          <div><h2>Small scope, fixed price, done.</h2></div>
+        </div>
+        <div class="steps">
+          <div class="step"><span class="label"><span class="num">01</span></span><h3>Show me</h3><p>You walk me through the task once, on a call or a screen recording.</p></div>
+          <div class="step"><span class="label"><span class="num">02</span></span><h3>Flat quote</h3><p>I send a fixed price and what you'll get. No hourly meter.</p></div>
+          <div class="step"><span class="label"><span class="num">03</span></span><h3>Build and test</h3><p>I build it and test it on your real files, not a demo.</p></div>
+          <div class="step"><span class="label"><span class="num">04</span></span><h3>Hand off</h3><p>You get the tool and a short how-to. You pay when it works.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark">
+      <div class="wrap">
+        <h2>What do you do every Monday that <em>a computer should?</em></h2>
+        <div class="btn-row mt-2">
+          <a class="btn btn-light" href="index.html#contact">Get in touch →</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <span>&copy; 2026 Cope Consulting, LLC</span>
-    <span>zachcope.com</span>
+    <div class="wrap">
+      <span>&copy; <span data-year>2026</span> Cope Consulting, LLC</span>
+      <a href="mailto:zach@zachcope.com">zach@zachcope.com</a>
+    </div>
   </footer>
 
   <script src="script.js"></script>
