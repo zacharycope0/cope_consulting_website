@@ -76,6 +76,8 @@ h1 em, h2 em, h3 em { font-style: italic; color: var(--accent); }
   max-width: 38em;
 }
 .lede strong { color: var(--fg); font-weight: 500; }
+.lede a { color: var(--fg); text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.lede a:hover { color: var(--accent-ink); }
 
 .prose p + p { margin-top: 1em; }
 .prose { max-width: 40em; }
